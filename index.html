@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="./images/icon.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <title>Alex.Dev</title>
+  </head>
+  <body>
+    <div class="loader">
+      <div class="loader-inner">
+        <div class="loader__bar"></div>
+        <div class="loader__bar"></div>
+        <div class="loader__bar"></div>
+        <div class="loader__bar"></div>
+        <div class="loader__bar"></div>
+        <div class="loader__ball"></div>
+      </div>
+    </div>
+
+    <button class="button-top">
+      <svg class="svgIcon" viewBox="0 0 384 512">
+        <path
+          d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"
+        ></path>
+      </svg>
+    </button>
+
+    <nav class="navbar">
+      <a href="#" class="logo">Alex <span>.Dev</span></a>
+
+      <button class="menu-toggle" id="menu-toggle">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="#About">About</a></li>
+        <li><a href="#Skills">Skills</a></li>
+        <li><a href="#Portfolio">Portfolio</a></li>
+        <li><a href="#Testimonials">Testimonials</a></li>
+        <li><a href="#Contact">Contact</a></li>
+      </ul>
+
+      <a href="" class="cyber-toggle-wrapper">
+        <input
+          class="cyber-toggle-checkbox"
+          id="cyber-toggle"
+          type="checkbox"
+        />
+        <label class="cyber-toggle" for="cyber-toggle">
+          <div class="cyber-toggle-track">
+            <div class="cyber-toggle-track-glow"></div>
+            <div onclick="toggleDarkMode() " class="cyber-toggle-track-dots">
+              <span class="cyber-toggle-track-dot"></span>
+              <span class="cyber-toggle-track-dot"></span>
+              <span class="cyber-toggle-track-dot"></span>
+            </div>
+          </div>
+          <div class="cyber-toggle-thumb">
+            <div class="cyber-toggle-thumb-shadow"></div>
+            <div class="cyber-toggle-thumb-highlight"></div>
+            <div onclick="toggleDarkMode() " class="cyber-toggle-thumb-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                  d="M16.5 12c0-2.48-2.02-4.5-4.5-4.5s-4.5 2.02-4.5 4.5 2.02 4.5 4.5 4.5 4.5-2.02 4.5-4.5zm-4.5 7.5c-4.14 0-7.5-3.36-7.5-7.5s3.36-7.5 7.5-7.5 7.5 3.36 7.5 7.5-3.36 7.5-7.5 7.5zm0-16.5c-4.97 0-9 4.03-9 9h-3l3.89 3.89.07.14 4.04-4.03h-3c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42c1.63 1.63 3.87 2.64 6.36 2.64 4.97 0 9-4.03 9-9s-4.03-9-9-9z"
+                ></path>
+              </svg>
+            </div>
+          </div>
+          <div class="cyber-toggle-particles">
+            <span class="cyber-toggle-particle"></span>
+            <span class="cyber-toggle-particle"></span>
+            <span class="cyber-toggle-particle"></span>
+            <span class="cyber-toggle-particle"></span>
+          </div>
+        </label>
+        <div class="cyber-toggle-labels">
+          <span class="cyber-toggle-label-off">OFF</span>
+          <span class="cyber-toggle-label-on">ON</span>
+        </div>
+      </a>
+    </nav>
+    <div class="header container">
+      <div class="text-header">
+        <h1>HAY THERE! I’M ALEX</h1>
+        <h2 id="dynamic-text"></h2>
+        <div class="button" data-tooltip="Download">
+          <div class="button-wrapper">
+            <div class="text">MY-CV</div>
+            <a href="#" class="icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+                role="img"
+                width="2em"
+                height="2em"
+                preserveAspectRatio="xMidYMid meet"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 0 0 4.561 21h14.878a2 2 0 0 0 1.94-1.515L22 17"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="img">
+        <img
+          src="./images/author1.png"
+          alt="Hero Image"
+          class="header-float-img"
+        />
+      </div>
+    </div>
+    <div id="About">
+      <button class="btn-about">About Me <span></span></button>
+
+      <div class="About container">
+        <div class="left">
+          <div class="bg">
+            <div class="bg-1"></div>
+            <div class="bg-2">
+              <img src="./images/author1.png" alt="" />
+              <button id="btn-a" class="btn-a">+</button>
+              <div id="bg-3" class="bg-3 hide">
+                <h4>Alex Weary</h4>
+                <div class="row">
+                  <div class="p-1-row">
+                    <p>Age</p>
+                    <p>Address</p>
+                    <p>E-mail</p>
+                    <p>Residence</p>
+                    <p>Phone</p>
+                    <p>Freelance</p>
+                  </div>
+
+                  <div class="p-2-row">
+                    <p><b>28</b></p>
+                    <p><b>71 Pilgrim Avenue Chevy Chase</b></p>
+                    <p><b>email@example.com</b></p>
+                    <p><b>USA</b></p>
+                    <p><b>+0123 789 123 456</b></p>
+                    <p><b>Available</b></p>
+                  </div>
+                  <div class="card">
+                    <span>Social</span>
+                    <a class="social-link" href="#">
+                      <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                    <a class="social-link" href="#">
+                      <i class="fa-brands fa-facebook"></i>
+                    </a>
+                    <a class="social-link" href="#">
+                      <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a class="social-link" href="#">
+                      <i class="fa-brands fa-square-twitter"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="right">
+          <h5>With more than 5 years of experience</h5>
+          <p>
+            <b>
+              Amet minim mollit non deserunt ullamco est sit aliqua dolor do
+              amet sint. Velit officia consequat duis enim velit mollit.
+              Exercitation veniam consequat sunt nostrud amet. Embarrassing
+              hidden in the middle of text. All the Lorem Ipsum generate on the
+              are Internet tend to repeat predefined chunks as necessary, making
+              of this the first true generator on the Internet which don't look
+              even you.
+            </b>
+          </p>
+          <div class="skill-about">
+            <h6><i class="fa-solid fa-circle-check"></i> Web Developer</h6>
+            <h6><i class="fa-solid fa-circle-check"></i> Mobile Developer</h6>
+            <h6><i class="fa-solid fa-circle-check"></i> Mobile Developer</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="Skills">
+      <button class="btn-about">Skills <span></span></button>
+
+      <div class="skills container">
+        <div class="left">
+          <h3>You Can Imagine <br />I Can Do</h3>
+          <p>
+            I am working on a professional, visually sophisticated and <br />
+            technologically proficient, responsive and multi-functional <br />
+            creative personal resume portfolio template Aali
+          </p>
+        </div>
+
+        <div class="skill-about">
+          <div class="skill">
+            <h6>Web Developer <span>90%</span></h6>
+            <div class="progress-bar">
+              <div class="progress" style="width: 90%"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <h6>Mobile Developer <span>75%</span></h6>
+            <div class="progress-bar">
+              <div class="progress" style="width: 75%"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <h6>UI Designer <span>60%</span></h6>
+            <div class="progress-bar">
+              <div class="progress" style="width: 60%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="skills-1">
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide card">
+              <i class="fa-brands fa-html5"></i>
+              <i class="fa-brands fa-css3-alt"></i>
+              <div class="card__content">
+                <p class="card__title">HTML5 & CSS3</p>
+                <p class="card__description">
+                  Strong foundation in structuring and styling web pages with
+                  clean, semantic markup and modern design practices.
+                </p>
+              </div>
+            </div>
+            <div class="swiper-slide card">
+              <i class="fa-brands fa-js"></i>
+              <div class="card__content">
+                <p class="card__title">JavaScript (ES6+)</p>
+                <p class="card__description">
+                  Proficient in building interactive features using modern
+                  JavaScript, DOM manipulation, and REST APIs.
+                </p>
+              </div>
+            </div>
+            <div class="swiper-slide card">
+              <i class="fa-brands fa-bootstrap"></i>
+              <div class="card__content">
+                <p class="card__title">Bootstrap 5</p>
+                <p class="card__description">
+                  Quick and elegant responsive layouts using Bootstrap
+                  components and utilities with full device compatibility.
+                </p>
+              </div>
+            </div>
+            <div class="swiper-slide card">
+              <i class="fa-brands fa-react"></i>
+              <div class="card__content">
+                <p class="card__title">React.js</p>
+                <p class="card__description">
+                  Component-based architecture for building scalable UIs, with
+                  state management through Hooks and clean code structure.
+                </p>
+              </div>
+            </div>
+            <div class="swiper-slide card">
+              <i class="fas fa-laptop-code"></i>
+
+              <div class="card__content">
+                <p class="card__title">Responsive Design</p>
+                <p class="card__description">
+                  Crafting layouts that adapt perfectly to all screen sizes,
+                  ensuring a smooth user experience on any device..
+                </p>
+              </div>
+            </div>
+            <div class="swiper-slide card">
+              <i class="fas fa-lightbulb"></i>
+
+              <div class="card__content">
+                <p class="card__title">UI/UX Thinking</p>
+                <p class="card__description">
+                  Designing intuitive and visually appealing interfaces focused
+                  on real user behavior and interaction.
+                </p>
+              </div>
+            </div>
+            <div class="swiper-slide card">
+              <i class="fa-brands fa-git-alt"></i>
+              <div class="card__content">
+                <p class="card__title">Git & GitHub</p>
+                <p class="card__description">
+                  Version control and project management with Git, along with
+                  collaborative development using GitHub repositories.
+                </p>
+              </div>
+            </div>
+            <div class="swiper-slide card">
+              <i class="fas fa-cogs"></i>
+              <div class="card__content">
+                <p class="card__title">Performance Optimization</p>
+                <p class="card__description">
+                  Improving page speed and site performance through code
+                  minification, lazy loading, and image optimization.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="Portfolio" class="Portfolio">
+      <button class="btn-about">Portfolio <span></span></button>
+
+      <div class="items container">
+        <div class="item">
+          <h3>Landing bage</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+          <button class="show-img-btn">Show Image</button>
+          <img
+            class="img-item"
+            src="./images/Portfolio img 1.jpg"
+            alt="Online store"
+            style="display: none"
+          />
+        </div>
+
+        <div class="item">
+          <h3>Course website</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+          <button class="show-img-btn">Show Image</button>
+
+          <img
+            class="img-item"
+            src="./images/Portfolio img 2.jpg"
+            alt=""
+            style="display: none"
+          />
+        </div>
+
+        <div class="item">
+          <h3>Landing Page</h3>
+
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+          <button class="show-img-btn">Show Image</button>
+          <img
+            class="img-item"
+            src="./images/Portfolio img 3.jpg"
+            alt="Online store"
+            style="display: none"
+          />
+        </div>
+
+        <div class="item">
+          <h3>Educational web side</h3>
+
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+          <button class="show-img-btn">Show Image</button>
+          <img
+            class="img-item"
+            src="./images/Portfolio img 4.png"
+            alt="Online store"
+            style="display: none"
+          />
+        </div>
+
+        <div class="item">
+          <h3>Online store</h3>
+
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+          <button class="show-img-btn">Show Image</button>
+          <img
+            class="img-item"
+            src="./images/Portfolio img 5.png"
+            alt="Online store"
+            style="display: none"
+          />
+        </div>
+
+        <div class="item">
+          <h3>Dash bord web site</h3>
+
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+          <button class="show-img-btn">Show Image</button>
+          <img
+            class="img-item"
+            src="./images/Portfolio img 6.png"
+            alt="Online store"
+            style="display: none"
+          />
+        </div>
+      </div>
+
+      <div class="diamond-animate one"></div>
+      <div class="diamond-animate two"></div>
+      <div id="img-popup-overlay" style="display: none">
+        <div id="img-popup-bg"></div>
+        <img id="img-popup-img" src="" alt="Portfolio Image" />
+        <a href="" class="Visit-website">Visit Website</a>
+      </div>
+    </div>
+
+    <div class="stats" id="stats">
+      <div class="container">
+        <div class="box">
+          <i class="far fa-user fa-2x fa-fw"></i>
+          <span class="number" data-goal="150">0</span>
+          <span class="text">Clients</span>
+        </div>
+        <div class="box">
+          <i class="fas fa-code fa-2x fa-fw"></i>
+          <span class="number" data-goal="135">0</span>
+          <span class="text">Projects</span>
+        </div>
+        <div class="box">
+          <i class="fas fa-globe-asia fa-2x fa-fw"></i>
+          <span class="number" data-goal="50">0</span>
+          <span class="text">Countries</span>
+        </div>
+        <div class="box">
+          <i class="far fa-money-bill-alt fa-2x fa-fw"></i>
+          <span class="number" data-goal="500">0</span>
+          <span class="text">Money</span>
+        </div>
+      </div>
+    </div>
+    <div id="Testimonials" class="Testimonials">
+      <button class="btn-about">Testimonials <span></span></button>
+      <img src="./images/img Testimonials.png" class="img-1" alt="" />
+
+      <div class="swiper myswiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide catrd-Testimonials">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+
+            <p>
+              <b>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Reiciendis nihil animi deleniti quas voluptas, excepturi
+                consequuntur eligendi iste, corrupti neque, ipsam quisquam?
+                Voluptates natus porro fuga soluta commodi in optio!
+              </b>
+            </p>
+
+            <h2>Lorem ipsum</h2>
+            <h3>Graphic designer</h3>
+          </div>
+          <div class="swiper-slide catrd-Testimonials">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star-half-stroke"></i>
+            <p>
+              <b>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Reiciendis nihil animi deleniti quas voluptas, excepturi
+                consequuntur eligendi iste, corrupti neque, ipsam quisquam?
+                Voluptates natus porro fuga soluta commodi in optio!
+              </b>
+            </p>
+
+            <h2>Lorem ipsum</h2>
+            <h3>Graphic designer</h3>
+          </div>
+          <div class="swiper-slide catrd-Testimonials">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star-half-stroke"></i>
+
+            <p>
+              <b>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Reiciendis nihil animi deleniti quas voluptas, excepturi
+                consequuntur eligendi iste, corrupti neque, ipsam quisquam?
+                Voluptates natus porro fuga soluta commodi in optio!
+              </b>
+            </p>
+
+            <h2>Lorem ipsum</h2>
+            <h3>Graphic designer</h3>
+          </div>
+          <div class="swiper-slide catrd-Testimonials">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+
+            <p>
+              <b>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Reiciendis nihil animi deleniti quas voluptas, excepturi
+                consequuntur eligendi iste, corrupti neque, ipsam quisquam?
+                Voluptates natus porro fuga soluta commodi in optio!
+              </b>
+            </p>
+
+            <h2>Lorem ipsum</h2>
+            <h3>Graphic designer</h3>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+      <div class="swiper-pagination"></div>
+      <img src="./images/Testimonials.png" class="img-4" alt="" />
+    </div>
+
+    <img src="./images/img Testimonials 1.png" class="img-2" alt="" />
+    <img src="./images/img Testimonials 2.png" class="img-3" alt="" />
+
+    <button class="btn-about">Contact <span></span></button>
+
+    <div id="Contact" class="Contact container">
+      <div class="img">
+        <img src="./images/contact (1).png" alt="" />
+      </div>
+
+      <form>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          placeholder="Your name"
+          required
+        />
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Your Email"
+          required
+        />
+        <input type="text" placeholder="your subject" />
+        <textarea
+          name="massage"
+          id="massage"
+          cols="30"
+          rows="10"
+          placeholder="massage"
+        ></textarea>
+        <button type="submit" class="btn-primary">Send Message</button>
+      </form>
+    </div>
+
+    <hr />
+    <footer>
+      <p>&copy; 2025 | <b> Created by Hamza Mahmoud</b></p>
+
+      <div class="Social">
+        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-square-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-github"></i></a>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
